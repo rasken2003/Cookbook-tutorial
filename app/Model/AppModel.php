@@ -30,4 +30,14 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+	function notSpace($field = array()){
+	    foreach($field as $name => $value) {
+		    if (mb_ereg_match("^(\s|　)+$", $value)) {
+			    return false;
+		    } else {
+		        return true;
+		    }
+	    }
+	}
 }
